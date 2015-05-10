@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhaeo.Roslyn", "Rhaeo.Roslyn\Rhaeo.Roslyn.csproj", "{87F27327-FBFC-49D5-BC1D-652EC1862AB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rhaeo.Roslyn.Demonstrations", "Rhaeo.Roslyn.Demonstrations\Rhaeo.Roslyn.Demonstrations.csproj", "{29C78EAD-F10B-48E5-A851-3976E59BBE86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{87F27327-FBFC-49D5-BC1D-652EC1862AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87F27327-FBFC-49D5-BC1D-652EC1862AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87F27327-FBFC-49D5-BC1D-652EC1862AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29C78EAD-F10B-48E5-A851-3976E59BBE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29C78EAD-F10B-48E5-A851-3976E59BBE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29C78EAD-F10B-48E5-A851-3976E59BBE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29C78EAD-F10B-48E5-A851-3976E59BBE86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
