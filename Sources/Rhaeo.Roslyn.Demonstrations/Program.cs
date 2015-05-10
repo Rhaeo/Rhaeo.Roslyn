@@ -21,6 +21,7 @@ namespace Rhaeo.Roslyn.Demonstrations
     /// </summary>
     private static void Main()
     {
+      // TODO: Create an example code to demonstrate documenting and auto-documenting extension methods on.
     }
 
     #endregion

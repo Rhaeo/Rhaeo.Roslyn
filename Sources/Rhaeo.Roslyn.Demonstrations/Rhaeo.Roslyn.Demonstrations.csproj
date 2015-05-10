@@ -47,6 +47,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rhaeo.Roslyn\Rhaeo.Roslyn.csproj">
+      <Project>{87f27327-fbfc-49d5-bc1d-652ec1862ab6}</Project>
+      <Name>Rhaeo.Roslyn</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
