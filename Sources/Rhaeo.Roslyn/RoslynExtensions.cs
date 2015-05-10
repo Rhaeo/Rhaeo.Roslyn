@@ -8,7 +8,10 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Rhaeo.Roslyn
 {
@@ -34,9 +37,43 @@ namespace Rhaeo.Roslyn
     /// <returns>
     /// The new syntax node.
     /// </returns>
+    [
+    SuppressMessage("StyleCop.CSharp.SpacingRules", "SA1008:OpeningParenthesisMustBeSpacedCorrectly", Justification = "Ignored for more tree-like fluent syntax usage."),
+    SuppressMessage("StyleCop.CSharp.SpacingRules", "SA1009:ClosingParenthesisMustBeSpacedCorrectly", Justification = "Ignored for more tree-like fluent syntax usage."),
+    SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1110:OpeningParenthesisMustBeOnDeclarationLine", Justification = "Ignored for more tree-like fluent syntax usage."),
+    SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1111:ClosingParenthesisMustBeOnLineOfLastParameter", Justification = "Ignored for more tree-like fluent syntax usage."),
+    SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1118:ParameterMustNotSpanMultipleLines", Justification = "Ignored for more tree-like fluent syntax usage.")
+    ]
     public static TSyntaxNode WithLeadingDocumentationTrivia<TSyntaxNode>(this TSyntaxNode syntaxNode, String summary = null) where TSyntaxNode : SyntaxNode
     {
-      throw new NotImplementedException();
+      // TODO: Include the summary element text content and expand the optional parameters for more elements of use auto-documenting methods instead as per #2.
+      return syntaxNode.WithLeadingTrivia
+      (
+        SyntaxFactory.Trivia
+        (
+          SyntaxFactory.DocumentationCommentTrivia
+          (
+            SyntaxKind.MultiLineDocumentationCommentTrivia,
+            new SyntaxList<XmlNodeSyntax>().Add
+            (
+              SyntaxFactory.XmlElement
+              (
+                SyntaxFactory.XmlElementStartTag
+                (
+                  SyntaxFactory.XmlName("summary")
+                ),
+                SyntaxFactory.XmlElementEndTag
+                (
+                  SyntaxFactory.XmlName("summary")
+                )
+              ).WithLeadingTrivia
+              (
+                SyntaxFactory.DocumentationCommentExterior("/// ")
+              )
+            )
+          )
+        )
+      );
     }
 
     #endregion
